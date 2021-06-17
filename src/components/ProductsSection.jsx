@@ -14,7 +14,7 @@ const Section = styled.section`
 `;
 
 const ProductsSection = ({ products }) => {
-  const { currentFilter } = useFilter();
+  const { currentFilter, currentSearch } = useFilter();
 
   const onlyPizzas = products.filter((product) => product.type === "pizza");
   const onlyBeverages = products.filter(
@@ -24,18 +24,30 @@ const ProductsSection = ({ products }) => {
   return (
     <>
       <h1 style={{ marginLeft: "6rem", marginTop: "1.5rem" }}>Opções</h1>
+
       {currentFilter === "all" && (
         <Section>
-          {products.map(({ name, price, image, size }) => (
+          {products.filter((product) => {
+            if(currentSearch == ''){
+              return product
+            } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
+              return product
+            }
+          }).map(({ name, price, image, size }, key) => (
             <div className="product">
-              <Product name={name} price={price} size={size} image={image} />
+              <Product key={key} name={name} price={price} size={size} image={image} />
             </div>
           ))}
         </Section>
       )}
       {currentFilter === "pizzas" && (
         <Section>
-          {onlyPizzas.map(({ name, price, image, size }) => (
+          {onlyPizzas.filter((product) => {
+            if(currentSearch == ''){
+              return product
+            } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
+              return product
+            }}).map(({ name, price, image, size }, key) => (
             <div className="product">
               <Product name={name} price={price} size={size} image={image} />
             </div>
@@ -44,7 +56,12 @@ const ProductsSection = ({ products }) => {
       )}
       {currentFilter === "beverages" && (
         <Section>
-          {onlyBeverages.map(({ name, price, image, size }) => (
+          {onlyBeverages.filter((product) => {
+            if(currentSearch == ''){
+              return product
+            } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
+              return product
+            }}).map(({ name, price, image, size }, key) => (
             <div className="product">
               <Product name={name} price={price} size={size} image={image} />
             </div>

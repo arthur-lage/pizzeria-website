@@ -57,7 +57,7 @@ const FilterSelect = styled.select`
 `;
 
 const Filters = () => {
-  const { currentFilter, setCurrentFilter } = useFilter();
+  const { currentFilter, setCurrentFilter, currentSearch, setCurrentSearch } = useFilter();
 
   return (
     <Container>
@@ -76,6 +76,7 @@ const Filters = () => {
             name="search"
             placeholder="Pesquisar"
             id="search"
+            onChange={(e) => setCurrentSearch(e.target.value)}
           />
         </Search>
         <FilterSelect onChange={(e) => setCurrentFilter(e.target.value)}>

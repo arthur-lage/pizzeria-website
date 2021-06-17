@@ -60,7 +60,7 @@ const Product = ({ name, price, image, size }) => {
     <ProductContainer>
       <img src={image} alt={name} />
       <h4>{name}</h4>
-      <h2>{price}</h2>
+      <h2>{price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</h2>
       <p>{size}</p>
       <button>Adicionar ao Carrinho</button>
     </ProductContainer>
