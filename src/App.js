@@ -1,26 +1,23 @@
-import GlobalStyle from "./globalStyles";
-
 import React from "react";
 
-import Navbar from "./components/Navbar";
-import Filters from "./components/Filters";
-import ProductsSection from "./components/ProductsSection";
-import FloatingOrder from "./components/FloatingOrder";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
+import Order from "./pages/Order";
 
-import FilterProvider from './context/FilterContext'
-
-import { ProductsData } from "./data/ProductsData";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <FilterProvider>
-        <GlobalStyle />
-        <Navbar />
-        <Filters />
-        <ProductsSection products={ProductsData} />
-        <FloatingOrder />
-      </FilterProvider>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/order" component={Order} />
+        </Switch>
+      </Router>
     </div>
   );
 }
