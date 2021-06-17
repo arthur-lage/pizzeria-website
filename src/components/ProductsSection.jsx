@@ -27,8 +27,9 @@ const ProductsSection = ({ products }) => {
 
       {currentFilter === "all" && (
         <Section>
+          { /* eslint-disable-next-line */ }
           {products.filter((product) => {
-            if(currentSearch == ''){
+            if(currentSearch === ''){
               return product
             } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
               return product
@@ -42,8 +43,9 @@ const ProductsSection = ({ products }) => {
       )}
       {currentFilter === "pizzas" && (
         <Section>
+          { /* eslint-disable-next-line */ }
           {onlyPizzas.filter((product) => {
-            if(currentSearch == ''){
+            if(currentSearch === ''){
               return product
             } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
               return product
@@ -56,8 +58,9 @@ const ProductsSection = ({ products }) => {
       )}
       {currentFilter === "beverages" && (
         <Section>
+          { /* eslint-disable-next-line */ }
           {onlyBeverages.filter((product) => {
-            if(currentSearch == ''){
+            if(currentSearch === ''){
               return product
             } else if(product.name.toLowerCase().includes(currentSearch.toLowerCase())) {
               return product

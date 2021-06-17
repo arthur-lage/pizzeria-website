@@ -57,7 +57,7 @@ const FilterSelect = styled.select`
 `;
 
 const Filters = () => {
-  const { currentFilter, setCurrentFilter, currentSearch, setCurrentSearch } = useFilter();
+  const { currentFilter, setCurrentFilter, setCurrentSearch } = useFilter();
 
   return (
     <Container>
