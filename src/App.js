@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./globalStyles";
+
+import React from "react";
+
+import Navbar from "./components/Navbar";
+import Filters from "./components/Filters";
+import ProductsSection from "./components/ProductsSection";
+import FloatingOrder from "./components/FloatingOrder";
+
+import FilterProvider from './context/FilterContext'
+
+import { ProductsData } from "./data/ProductsData";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FilterProvider>
+        <GlobalStyle />
+        <Navbar />
+        <Filters />
+        <ProductsSection products={ProductsData} />
+        <FloatingOrder />
+      </FilterProvider>
     </div>
   );
 }
